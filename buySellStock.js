@@ -26,13 +26,6 @@ const prices = [3, 2, 4, 1, 1, 0];
 console.log( `Max Profit is ${calculateMaxProfit(prices)}`);
 
 
-
-
-
-
-
-
-
 //Example 1:
 
 /* Input: prices = [7,1,5,3,6,4]
