@@ -1,0 +1,3 @@
+function displyScore(params) {
+    
+}
