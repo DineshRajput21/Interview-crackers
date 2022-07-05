@@ -21,11 +21,11 @@ Output: 9
 
 //SOLUTION
 
-var calculateTrapWater = function (buildingArray) {
+function calculateTrapWater (buildingArray) {
     let left = []; 
     let right = [];
     let maxLeft= 0, maxRight = 0;
-    let buildingReverseArray = [...buildingArray].reverse();
+    let buildingReverseArray = buildingArray.slice().reverse();
 
     buildingArray.forEach((height, index) => {
         maxLeft = Math.max(maxLeft, height);
@@ -36,7 +36,15 @@ var calculateTrapWater = function (buildingArray) {
         maxRight = Math.max(maxRight, height);
         right.push(maxRight);
     });
-    return buildingArray;
+    right.reverse()
+    let waterTrapped=0;
+    buildingArray.forEach((height, index)=>{
+        const min = Math.min(left[index], right[index]);
+        waterTrapped  += min - height;
+    })
+
+    return waterTrapped;
 };
 
 console.log(calculateTrapWater([0, 1, 0, 2, 1, 0, 1, 3, 2, 1, 2, 1]));
+// console.log(calculateTrapWater([3, 1, 2, 4, 0, 1, 3, 2]));
